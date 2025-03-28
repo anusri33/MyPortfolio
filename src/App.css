@@ -92,19 +92,73 @@ nav.navbar {
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
+  background-color: rgb(232, 163, 150);
 }
 nav.navbar a.navbar-brand {
     width: 9%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
-  font-weight: 400;
-  color: #fff !important;
+  font-weight: bolder;
+  color: rgb(14, 1, 12) !important;
   letter-spacing: 0.8px;
-  padding: 0 25px;
-  font-size: 18px;
+  padding: 0 30px;
+  font-size: 20px;
   opacity: 0.75;
+} 
+
+.navbar {
+  background-color: transparent; /* no blur on full navbar */
+  padding: 16px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0 0 20px 20px;
 }
+
+/* Nav links container blur effect */
+.navbar .nav {
+  background: linear-gradient(to right, rgba(253, 229, 222, 0.5), rgba(232, 163, 150, 0.5));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 8px 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Nav link styles */
+.navbar-link {
+  color: #2D1E2F;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #E08A7D;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  width: 100%;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #E08A7D;
+}
+
+
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
     opacity: 1;
@@ -120,45 +174,42 @@ span.navbar-text {
 .social-icon a {
     width: 42px;
     height: 42px;
-    background: rgba(217, 217, 217, 0.1);
+    background:  rgb(232, 163, 150);
     display: inline-flex;
     border-radius: 50%;
     margin-right: 6px;
     align-items: center;
     justify-content: center;
-    line-height: 1;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    line-height: 0;
+    border: 1px solid  rgb(232, 163, 150);
 }
 .social-icon a::before {
     content: "";
     width: 42px;
     height: 42px;
     position: absolute;
-    background-color: #ffffff;
+    background-color:  rgb(232, 163, 150);
     border-radius: 50%;
     transform: scale(0);
 	transition: 0.3s ease-in-out;
 }
-.social-icon a:hover::before {
-    transform: scale(1);
-}
+
 .social-icon a img {
-	width: 40%;
+	width: 60%;
 	z-index: 1;
 	transition: 0.3s ease-in-out;
 }
-.social-icon a:hover img {
-	filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
-}
+
 .navbar-text button {
   font-weight: 700;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 18px 34px;
+  color: black;
+  border: 1px solid  rgb(232, 163, 150);
+  padding: 12px 25px;
+  border-radius: 12px;
   font-size: 18px;
   margin-left: 18px;
 	position: relative;
-	background-color: transparent;
+	background-color: rgb(232, 163, 150);
 	transition: 0.3s ease-in-out;
 }
 .navbar-text button span {
@@ -169,7 +220,7 @@ span.navbar-text {
   width: 0%;
   height: 100%;
   position: absolute;
-  background-color: #fff;
+  background-color: rgb(76, 74, 89);
   left: 0;
   top: 0;
   z-index: -1;
@@ -258,14 +309,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: block;
 }
 .banner p {
-  color: #B8B8B8;
+  color: black;
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
   width: 96%;
 }
 .banner button {
-  color: #fff;
+  color: black;
   font-weight: 700;
   font-size: 20px;
   margin-top: 60px;
@@ -282,9 +333,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner button:hover svg {
   margin-left: 25px;
 }
-.banner img {
+/*{.banner img {
   animation: updown 3s linear infinite;
-}
+}} */
 @keyframes updown {
     0% {
         transform: translateY(-20px);
@@ -304,9 +355,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .skill {
   padding: 0 0 50px 0;
   position: relative;
+  background:rgb(253, 229, 222);
 }
 .skill-bx {
-  background: #151515;
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
@@ -344,7 +395,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project {
   padding: 80px 0;
   position: relative;
-  background-color: black;
+  background: rgb(253, 229, 222);
 }
 .project h2 {
 	font-size: 45px;
@@ -402,7 +453,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     border: 1px solid rgba(255, 255, 255, 1);
 }
 .nav-link#projects-tabs-tab-first {
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(164, 163, 179);
   border-radius: 55px 0px 0px 55px;
 }
 .nav-link#projects-tabs-tab-second {
@@ -468,23 +519,25 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Projects Css ************/
 .contact {
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 60px 0 200px 0;
+  background-image: url('./assets/img/footer-bg.png');
+  background-position: center center;
+  background-size: cover;
 }
 .contact img {
-  width: 92%;
+  width: 80%;
 }
 .contact h2 {
-	font-size: 45px;
-	font-weight: 700;
-  margin-bottom: 30px;
+	font-size: 40px;
+	font-weight: 600;
+  margin-bottom: 12px;
+  color: #000;
 }
 .contact form input, .contact form textarea {
   width: 100%;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
-  color: #fff;
+  color: rgba(54, 170, 118, 0.5);
   margin: 0 0 8px 0;
   padding: 18px 26px;
   font-weight: 500;
@@ -493,22 +546,22 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.3s ease-in-out;
 }
 .contact form input:focus, .contact form textarea:focus {
-  background: rgba(255, 255, 255, 1);
+  background: rgb(111, 144, 141);
   color: #121212;
 }
 .contact form input::placeholder, .contact form textarea::placeholder {
   font-size: 16px;
   font-weight: 400;
-  color: #fff;
+  color: black;
 }
 .contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
-  color: #121212;
+  color: white;
   opacity: 0.8;
 }
 .contact form button {
   font-weight: 700;
-  color: #000;
-  background-color: #fff;
+  color: white;
+  background-color: rgb(111, 144, 141) ;
   padding: 14px 48px;
   font-size: 18px;
   margin-top: 25px;
@@ -525,7 +578,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .contact form button::before {
   content: "";
-  background: #121212;
+  background: rgb(111, 144, 141);;
   width: 0;
   height: 100%;
   position: absolute;
@@ -538,81 +591,20 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 100%;
 }
 
-/************ Footer Css ************/
-.footer {
-  padding: 0 0 50px 0;
-  background-image: url('./assets/img/footer-bg.png');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.newsletter-bx {
-  background: #FFFFFF;
-  border-radius: 55px;
-  color: #121212;
-  padding: 85px 125px;
-  margin-bottom: 80px;
-  margin-top: -122px;
-}
-.newsletter-bx h3 {
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  line-height: 1.2em;
-}
-.new-email-bx {
-  background: #fff;
-  padding: 5px;
-  border-radius: 20px;
-  position: relative;
-  z-index: 0;
+
+.oval-image-wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 20px;
 }
-.new-email-bx::before {
-  content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  border-radius: 20px;
-  position: absolute;
-  z-index: -1;
-  top: -1px;
-  left: -1px;
-  bottom: -1px;
-  right: -1px;
+
+.vertical-oval-image {
+  width: 350px;       /* control width */
+  height: 350px;      /* taller height for vertical shape */
+  object-fit: cover;
+  border-radius: 50% / 70%;  /* makes it vertically oval */
+  /*border: 4px solid white; */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.new-email-bx::after {
-  content: "";
-  background: #fff;
-  border-radius: 20px;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-.new-email-bx input {
-  width: 100%;
-  color: #121212;
-  font-weight: 500;
-  background: transparent;
-  border: 0;
-  padding: 0 15px;
-}
-.new-email-bx button {
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 20px 65px;
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  border-radius: 18px;
-}
-.footer img {
-  width: 26%;
-}
-.footer p {
-  font-weight: 400;
-  font-size: 14px;
-  color: #B8B8B8;
-  letter-spacing: 0.5px;
-  margin-top: 20px;
-}
+
