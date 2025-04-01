@@ -1,36 +1,31 @@
-# Personal Portfolio Website in React
+# 💼 Anusri Mettala's Personal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive, animated portfolio website built using **React** and styled with **React-Bootstrap** and **Animate.css** to showcase my skills, projects, experience, and more.
 
-<img width="1266" alt="Screen Shot 2022-06-19 at 2 18 18 PM" src="https://user-images.githubusercontent.com/50160672/174933373-1ba6cadf-1c9a-48c3-aa58-984d0bd62d82.png">
+## 🚀 Tech Stack
 
-Built using:
+- **Frontend Library:** React
+- **Styling:** React-Bootstrap, Custom CSS
+- **Animations:** Animate.css
+- **Routing:** React Router
+- **Icons:** React Icons
+- **Hosting:** GitHub Pages
 
-- Front-end library: React
-- CSS framework: React-bootstrap
-- CSS animations library: Animate.css
+## 🖥️ Screenshots
 
-In the /personal-portfolio, you can run:
+![Portfolio Screenshot](src\assets\img\screenshot.png)
+
+## 📂 Available Scripts
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in development mode.  
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.  
+The page will reload automatically when you make changes.
 
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production.  
+It optimizes and minifies your React code for the best performance.  
+The final build is output to the `/build` folder.
