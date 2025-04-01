@@ -83,7 +83,7 @@ p.danger {
 }
 /************ Navbar Css ************/
 nav.navbar {
-  padding: 18px 0;
+  padding: 6px 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -107,7 +107,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
 } 
 
 .navbar {
-  background-color: transparent; /* no blur on full navbar */
+  background-color: rgb(230, 159, 144); /* no blur on full navbar */
   padding: 16px 32px;
   position: sticky;
   top: 0;
@@ -282,9 +282,30 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 /************ Banner Css ************/
+.overlay-container {
+  position: relative;
+  padding: 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.overlay-container::before {
+  content: "";
+  background: url('../src/assets/img/banner-bg-blur.png') no-repeat center center/cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 12px;
+}
+
 .banner {
   margin-top: 0;
-  padding: 260px 0 100px 0;
+  padding: 100px 0 40px 0;
   background-image: url('./assets/img/banner-bg.png');
   background-position: top center;
   background-size: cover;
@@ -294,14 +315,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.8px;
   padding: 8px 10px;
-  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
   margin-bottom: 16px;
   display: inline-block;
 }
 .banner h1 {
   font-size: 65px;
+  color: rgb(76, 74, 89);
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1;
@@ -309,7 +329,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: block;
 }
 .banner p {
-  color: black;
+  color: rgb(28, 38, 25);
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -353,36 +373,57 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Skills Css ************/
 .skill {
-  padding: 0 0 50px 0;
-  position: relative;
-  background:rgb(253, 229, 222);
+  color: #000;
+  background-color: rgb(253, 229, 222);
+  padding: 60px 0;
+  margin-top: -30px;
+  margin-bottom: 0; /* 🧽 remove gap below Skills */
 }
-.skill-bx {
-  border-radius: 64px;
-  text-align: center;
-  padding: 60px 50px;
-  margin-top: -60px;
+
+.skill .item {
+  background-color:  rgb(253, 229, 222);
+  border: 2px solid rgba(253, 229, 222, 0.7);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
+
+.skill .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
 .skill h2 {
-	font-size: 45px;
-	font-weight: 700;
+  color: black /* contrast with the pink background */
 }
-.skill p {
-    color: #B8B8B8;
-    font-size: 18px;
-    letter-spacing: 0.8px;
-    line-height: 1.5em;
-    margin: 14px 0 75px 0;
+
+.skill h4{
+  font-size: 20px;
+  color: #121212;
 }
-.skill-slider {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
+
+.skill p{
+  font-size: 18px;
 }
-.skill-slider .item img {
-  width: 50%;
-  margin: 0 auto 15px auto;
+
+.skill-pill {
+  color: black !important;
+  background-color: rgb(239, 169, 147);  /* Soft cream background */
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
 }
+
+
+.skill h5 {
+  color: black; /* punchy coral for skill names */
+}
+
+.skill-slider .item {
+  color: #000;
+  border-radius: 15px;
+}
+
 .background-image-left {
   top: 28%;
   position: absolute;
@@ -393,21 +434,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Projects Css ************/
 .project {
-  padding: 80px 0;
-  position: relative;
-  background: rgb(253, 229, 222);
+  color: #000;
+  margin-top: -50px;
+  margin-bottom: 0px; 
+  background: rgb(253, 229, 222); 
 }
+
 .project h2 {
-	font-size: 45px;
-	font-weight: 700;
+  font-size: 45px;
+  font-weight: 700;
   text-align: center;
 }
 .project p {
-  color: #B8B8B8;
+  color: black;
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
-  margin: 14px auto 30px auto;
+  margin: 0 auto 20px auto;
   text-align: center;
   width: 56%;
 }
@@ -452,6 +495,81 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project .nav.nav-pills .nav-link.active {
     border: 1px solid rgba(255, 255, 255, 1);
 }
+
+/************ Flip Card Projects ************/
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  height: 280px; /* Increased height for better readability */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flip-card-front {
+  background-color: #fff;
+  color: #121212;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  text-align: center;
+}
+
+.flip-card-back {
+  background-color: rgb(203, 138, 118);
+  color: #fff;
+  transform: rotateY(180deg);
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.flip-card-back p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.flip-card-back a.btn {
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.flip-card-back a.btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
 .nav-link#projects-tabs-tab-first {
   border: 1px solid rgb(164, 163, 179);
   border-radius: 55px 0px 0px 55px;
@@ -470,56 +588,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   overflow: hidden;
   margin-bottom: 24px;
 }
-.proj-imgbx::before {
-  content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  opacity: 0.85;
-  position: absolute;
-  width: 100%;
-  height: 0;
-  transition: 0.4s ease-in-out;
-}
-.proj-imgbx:hover::before {
-  height: 100%;
-}
-.proj-txtx {
-  position: absolute;
-  text-align: center;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.5s ease-in-out;
-  opacity: 0;
-  width: 100%;
-}
-.proj-imgbx:hover .proj-txtx {
-  top: 50%;
-  opacity: 1;
-}
-.proj-txtx h4 {
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 1.1em;
-}
-.proj-txtx span {
-  font-style: italic;
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0.8px;
-}
-.background-image-right {
-  top: 20%;
-  position: absolute;
-  bottom: 0;
-  width: 35%;
-  right: 0;
-  z-index: -4;
-}
 
 /************ Projects Css ************/
 .contact {
-  background-image: url('./assets/img/footer-bg.png');
+  background-image: url('./assets/img/banner-bg.png');
   background-position: center center;
   background-size: cover;
 }
@@ -532,65 +604,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 12px;
   color: #000;
 }
-.contact form input, .contact form textarea {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  color: rgba(54, 170, 118, 0.5);
-  margin: 0 0 8px 0;
-  padding: 18px 26px;
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: 0.8px;
-  transition: 0.3s ease-in-out;
-}
-.contact form input:focus, .contact form textarea:focus {
-  background: rgb(111, 144, 141);
-  color: #121212;
-}
-.contact form input::placeholder, .contact form textarea::placeholder {
-  font-size: 16px;
-  font-weight: 400;
-  color: black;
-}
-.contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
-  color: white;
-  opacity: 0.8;
-}
-.contact form button {
-  font-weight: 700;
-  color: white;
-  background-color: rgb(111, 144, 141) ;
-  padding: 14px 48px;
-  font-size: 18px;
-  margin-top: 25px;
-  border-radius: 0;
-  position: relative;
-  transition: 0.3s ease-in-out;
-}
-.contact form button span {
-  z-index: 1;
-  position: relative;
-}
-.contact form button:hover {
-  color: #fff;
-}
-.contact form button::before {
-  content: "";
-  background: rgb(111, 144, 141);;
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  transition: 0.3s ease-in-out;
-}
-.contact form button:hover::before {
-  width: 100%;
-}
-
 
 .oval-image-wrapper {
   display: flex;
@@ -608,3 +621,168 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+
+/************ Flip Card Projects ************/
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  height: 230px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.flip-card-front {
+  background-color: #fff;
+  color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.flip-card-back {
+  background-color: rgb(203, 138, 118);
+  color: #fff;
+  transform: rotateY(180deg);
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back a.btn {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.flip-card-back a.btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/************ Experience & Certifications Section ************/
+.experience-section {
+  background-color: rgb(253, 229, 222);
+  padding: 80px 0;
+  margin-top: -100px;
+  margin-bottom: 0; 
+  color: #121212;
+}
+
+.experience-section h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: rgb(203, 138, 118);
+}
+
+.experience-section h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #e75480;
+}
+
+/* Experience Cards */
+.experience-section .bg-light {
+  background-color: #fff !important;
+  border-left: 4px solid #e08a7d;
+}
+
+.experience-section .text-dark {
+  color: #121212 !important;
+}
+
+.experience-section .fw-bold {
+  color: #2d1e2f;
+}
+
+.experience-section .shadow-sm {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Certification Cards */
+.experience-section .border-primary {
+  border-color: #e75480 !important;
+}
+
+/* Hackathon Cards */
+.experience-section .border-warning {
+  background-color: #fff !important;
+  border-color: #ffc107 !important;
+}
+
+/* Shared Card Styles */
+.experience-section .rounded {
+  border-radius: 12px !important;
+}
+
+.experience-section p {
+  color: #121212;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.experience-section small {
+  color: #6c757d;
+}
+
+.education-section {
+  background-color:rgb(253, 229, 222) ;
+  margin-top: -90px;
+  padding: 80px 0;
+  color: #121212;
+}
+
+.text-edu-title {
+  font-size: 42px;
+  color: black;
+}
+
+.edu-card {
+  border-left: 5px solid #e08a7d;
+}
+
+.text-edu-degree {
+  font-size: 20px;
+  color: #2d1e2f;
+}
+
+.text-edu-school {
+  font-size: 18px;
+  color: #555;
+}
+
+.edu-highlights li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}

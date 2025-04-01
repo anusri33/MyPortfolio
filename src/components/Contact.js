@@ -1,49 +1,9 @@
-import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
+import contactImg from "../assets/img/contact-img.jpg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
-
 export const Contact = () => {
-  const formInitialDetails = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: ''
-  }
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
-  const [buttonText, setButtonText] = useState('Send');
-  const [status, setStatus] = useState({});
-
-  const onFormUpdate = (category, value) => {
-      setFormDetails({
-        ...formDetails,
-        [category]: value
-      })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
-    }
-  };
-
   return (
     <section className="contact" id="connect">
       <Container>
@@ -51,7 +11,7 @@ export const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
+                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us" />
               }
             </TrackVisibility>
           </Col>
@@ -59,47 +19,39 @@ export const Contact = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h2>Get In Touch</h2>
-                <form onSubmit={handleSubmit}>
-                  <Row>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="text" value={formDetails.firstName} style={{ border: "1px solid black", padding: "15px 20px", borderRadius: "20px" }} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="text" value={formDetails.lasttName} style={{ border: "1px solid black", padding: "15px 20px", borderRadius: "20px" }} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/>
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="email" value={formDetails.email} style={{ border: "1px solid black", padding: "15px 20px", borderRadius: "20px" }} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="tel" value={formDetails.phone} style={{ border: "1px solid black", padding: "15px 20px", borderRadius: "20px" }} placeholder="Phone No." onChange={(e) => onFormUpdate('phone', e.target.value)}/>
-                    </Col>
-                    <Col size={12} className="px-1">
-                      <textarea rows="6" value={formDetails.message} style={{ border: "1px solid black", padding: "15px 20px", borderRadius: "20px" }} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
-                      <button type="submit" style={{ border: "1px solid", padding: "10px 30px", borderRadius: "1px" }} ><span>{buttonText}</span></button>
-                    </Col>
-                    {
-                      status.message &&
-                      <Col>
-                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                      </Col>
-                    }
-                  </Row>
-                </form>
-              </div>}
+                  <h2>Get In Touch</h2>
+                  <p style={{ color: "black", fontSize: "18px", marginBottom: "10px" }}>
+                    Feel free to reach out — I'm happy to connect!
+                  </p>
+                  <p style={{ color: "black", fontWeight: "600", marginBottom: "20px" }}>
+                    📧 Email: <span style={{ textDecoration: "underline" }}>anusreemettala@gmail.com</span>
+                  </p>
+                  <a
+                    href="mailto:anusreemettala@gmail.com"
+                    style={{
+                      display: "inline-block",
+                      backgroundColor: "#6f908d",
+                      color: "white",
+                      padding: "14px 28px",
+                      borderRadius: "20px",
+                      fontWeight: "600",
+                      textDecoration: "none"
+                    }}
+                  >
+                    Email Me
+                  </a>
+                </div>
+              }
             </TrackVisibility>
           </Col>
         </Row>
-        <Row className="align-items-center">
-          
-          <Col size={12} sm={6}>
-          </Col>
-          <Col size={14} sm={6} className="text-center text-sm-end">
-            <p style={{ color: "black"}}>Portfolio By Anusri Mettala</p>
+
+        <Row className="align-items-center mt-4">
+          <Col size={12} className="text-center">
+            <p style={{ color: "black"}}>Portfolio By Anusri Mettala 💻</p>
           </Col>
         </Row>
-        
       </Container>
     </section>
-  )
-}
+  );
+};
