@@ -54,7 +54,7 @@ export const Banner = () => {
   zIndex: 10
 }}>
   <a
-  href="/AnusriMettalaResume.pdf"
+  href={`${process.env.PUBLIC_URL}/AnusriMettalaResume.pdf`}
   download
   target="_blank"
   style={{
