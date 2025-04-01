@@ -89,7 +89,7 @@ export const Banner = () => {
           <p className="bio">
             I’m a creative problem-solver and tech enthusiast pursuing my Master’s in Computer Science at Purdue University Indianapolis.
             <br /><br />
-            My experience spans full-stack development, cloud-native deployment, RESTful APIs, and DevOps practices — with a deep passion for crafting user-friendly, scalable software.
+            My experience spans full-stack development, RESTful APIs, and CI/CD pipeline building — with a deep passion for crafting user-friendly, scalable software.
             <br /><br />
             I've contributed to projects across EdTech, banking, and research, turning complex challenges into intuitive tools.
             <br /><br />
