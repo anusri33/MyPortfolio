@@ -13,7 +13,7 @@ A responsive, animated portfolio website built using **React** and styled with *
 
 ## 🖥️ Screenshots
 
-![Portfolio Screenshot](src\assets\img\screenshot.png)
+![screenshot](https://github.com/user-attachments/assets/47004e4c-ae29-4cb4-b585-bd00754df2df)
 
 ## 📂 Available Scripts
 
