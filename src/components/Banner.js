@@ -54,7 +54,7 @@ export const Banner = () => {
   zIndex: 10
 }}>
   <a
-  href="/anusreemettala@gmail.pdf"
+  href="/AnusriMettalaResume.pdf"
   download
   target="_blank"
   style={{
