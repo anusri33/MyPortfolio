@@ -57,6 +57,7 @@ export const Banner = () => {
   href={`${process.env.PUBLIC_URL}/AnusriMettalaResume.pdf`}
   download
   target="_blank"
+  rel="noopener noreferrer"
   style={{
     backgroundColor: '#e08a7d',
     color: 'white',
